@@ -5,7 +5,18 @@
   <link rel="stylesheet" type="text/css" href="index.css">
   <script type="text/javascript" src="paper-full.js"></script>
   <script type="text/paperscript" canvas="myCanvas">
-    
+
+    function onKeyDown(event) {
+      var maxPoint = new Point(view.size.width, view.size.height) 
+      var randomPoint = Point.random()
+      console.log(randomPoint)
+      console.log(maxPoint)
+      var point = maxPoint * randomPoint
+      console.log(point)
+      var myCircle = new Path.Circle(point, 10);
+
+      myCircle.fillColor = 'black';
+    }
   </script>
 </head>
 <body>
