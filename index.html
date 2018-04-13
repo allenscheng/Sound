@@ -6,17 +6,24 @@
   <script type="text/javascript" src="paper-full.js"></script>
   <script type="text/paperscript" canvas="myCanvas">
 
+    var circleArr = [];
+
     function onKeyDown(event) {
       var maxPoint = new Point(view.size.width, view.size.height) 
       var randomPoint = Point.random()
-      console.log(randomPoint)
-      console.log(maxPoint)
       var point = maxPoint * randomPoint
-      console.log(point)
-      var myCircle = new Path.Circle(point, 10);
-
-      myCircle.fillColor = 'black';
+      var myCircle = new Path.Circle(point, 100);
+      myCircle.fillColor = 'orange';
+      circleArr.push(myCircle);
     }
+
+    function onFrame() {
+      for (var i = 0; i < circleArr.length; i++) {
+        circleArr[i].fillColor.hue += 1;
+        circleArr[i].scale(.93);
+      }
+    }
+
   </script>
 </head>
 <body>
